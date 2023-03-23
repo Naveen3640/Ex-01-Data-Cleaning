@@ -21,52 +21,76 @@ Save the Clean data to the file
 # CODE
 
 #Reading the given csv file:
+
 from google.colab import files
 
 uploaded=files.upload()
+
 import pandas as pd
+
 import numpy as np
+
 import seaborn as sns
+
 df=pd.read_csv("credit_data_1.csv");
 
 #First 10 rows:
+
 firsttenrows=df.head(10);
+
 firsttenrows
 
 #Last 10 rows:
+
 lasttenrows=df.tail(10);
+
 lasttenrows
 
 #info:
+
 print(df.info())
 
 #Number of Null values :
+
 df.isnull().sum()
 
 #Fillna with various methods and null values *
 
 i)mean():
+
 df['age']=df['age'].fillna(df['age'].mean())
+
 df['owner']=df['owner'].fillna(df['dependents'].mean())
+
 df['selfemp']=df['selfemp'].fillna(df['dependents'].mean())
 
 ii)median():
+
 df['income']=df['income'].fillna(df['income'].median())
+
 df['share']=df['share'].fillna(df['share'].mean())
+
 df['expenditure']=df['expenditure'].fillna(df['share'].median())
+
 df['reports']=df['reports'].fillna(df['reports'].median())
+
 df['months']=df['months'].fillna(df['months'].median())
+
 df['majorcards']=df['majorcards'].fillna(df['majorcards'].median())
+
 df['active']=df['active'].fillna(df['active'].median())
 
 iii)mode():
+
 df['dependents']=df['dependents'].fillna(df['dependents'].mode()[0])
+
 df['card']=df['card'].fillna(df['card'].mode()[0])
 
 #After Cleaning the given dataset the number of Null values will be Zero as shown below:
+
 df.isnull().sum()
 
-# OUPUT
+# OUTPUT
 
 ![image](https://user-images.githubusercontent.com/95179990/227194986-c4dc20e2-6a55-4603-9dbb-b95d9d328d01.png)
 ![image](https://user-images.githubusercontent.com/95179990/227195135-e889dd6e-a038-4f33-966b-1d9a2c067433.png)
