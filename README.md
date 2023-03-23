@@ -22,6 +22,7 @@ Save the Clean data to the file
 
 #Reading the given csv file:
 from google.colab import files
+
 uploaded=files.upload()
 import pandas as pd
 import numpy as np
